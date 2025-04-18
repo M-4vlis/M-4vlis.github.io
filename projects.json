@@ -1,0 +1,16 @@
+[
+    {
+      "nome": "Churn Prediction",
+      "descricao": "Modelo para prever evasão de clientes em empresas de telecom.",
+      "tecnologias": ["Python", "Pandas", "Scikit-learn"],
+      "link": "https://github.com/M-4vlis/churn-prediction-project"
+    },
+  
+    {
+        "nome": "E-mail Sender",
+        "descricao": "Automação Web para envio de e-mails em massa.",
+        "tecnologias": ["HTML, CSS, Bootstrap, JavaScript, Python, Flask"],
+        "link": "https://github.com/M-4vlis/project_email_sender"
+    }
+  ]
+  
