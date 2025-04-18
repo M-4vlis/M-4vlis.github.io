@@ -52,9 +52,11 @@ section {
 section:nth-of-type(2) {
   animation-delay: 0.2s;
 }
+
 section:nth-of-type(3) {
   animation-delay: 0.4s;
 }
+
 footer {
   animation-delay: 0.6s;
   opacity: 0;
@@ -164,10 +166,37 @@ footer {
   box-shadow: 0 4px 14px rgba(0, 122, 204, 0.4);
 }
 
-.contato-container img {
-  width: 26px;
-  height: 26px;
-  filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.1));
+.contato-container i {
+  font-size: 20px;
+}
+
+/* QR Code flutuante */
+.qr-code {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 80px;
+  height: 80px;
+  background-color: #fff;
+  padding: 6px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+  object-fit: contain;
+  cursor: pointer;
+  transition: transform 0.3s ease, width 0.3s ease, height 0.3s ease;
+}
+
+.qr-code:hover {
+  transform: scale(1.1);
+}
+
+/* Rodapé */
+footer {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 0.9rem;
+  color: #777;
 }
 
 /* 🔥 Responsividade para telas pequenas */
@@ -181,18 +210,10 @@ footer {
     font-size: 1rem;
   }
 
-  .contato-container img {
-    width: 22px;
-    height: 22px;
+  .qr-code {
+    width: 60px;
+    height: 60px;
   }
-}
-
-/* Rodapé */
-footer {
-  text-align: center;
-  margin-top: 40px;
-  font-size: 0.9rem;
-  color: #777;
 }
 
 /* Responsividade */
@@ -220,7 +241,7 @@ footer {
 
   section {
     background-color: #2c2c2c;
-    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   }
 
   header {
@@ -234,7 +255,20 @@ footer {
 
   .projeto-card {
     background-color: #2a2a2a;
-    border-color: #007acc;
+    border-color: #444;
+    border-left-color: #007acc;
+  }
+  
+  .projeto-card h3 {
+    color: #e4e4e4;
+  }
+  
+  .projeto-card p {
+    color: #bbb;
+  }
+  
+  .projeto-card a {
+    color: #4ea1ff;
   }
 
   .contato-container a {
@@ -246,130 +280,21 @@ footer {
     background-color: #4ea1ff;
     color: #121212;
   }
-
-  .contato-container img {
-    filter: grayscale(0%) brightness(1.5);
-  }
-
-  footer {
-    color: #aaa;
-  }
-
-  .qr-code {
-    background-color: #1a1a1a;
-  }
-}
-
-/* QR Code flutuante */
-.qr-code {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 80px;
-  height: 80px;
-  background-color: #fff;
-  padding: 6px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  z-index: 999;
-  display: none; /* Ative ao adicionar imagem */
-}
-
-/* ========================
-   ✨ Estilo Turbinado ✨
-   ======================== */
-
-/* Fade-in animado nas seções */
-section, header, footer {
-  opacity: 0;
-  transform: translateY(30px);
-  animation: fadeInUp 0.6s ease-out forwards;
-}
-
-section:nth-of-type(2) {
-  animation-delay: 0.2s;
-}
-section:nth-of-type(3) {
-  animation-delay: 0.4s;
-}
-footer {
-  animation-delay: 0.6s;
-}
-
-@keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Transições suaves */
-* {
-  transition: all 0.3s ease;
-}
-
-/* Modo escuro baseado no sistema do usuário */
-@media (prefers-color-scheme: dark) {
-  body {
-    background-color: #1e1e1e;
-    color: #e4e4e4;
-  }
-
-  section {
-    background-color: #2c2c2c;
-    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.05);
-  }
-
-  header {
-    background-color: #121212;
-    color: #f0f0f0;
-  }
-
-  header p {
-    color: #ccc;
-  }
-
-  .projeto-card {
+  
+  #sobre-mim {
     background-color: #2a2a2a;
-    border-color: #007acc;
   }
-
-  .contato-item {
-    background-color: #1a1a1a;
-    color: #4ea1ff;
-  }
-
-  .contato-item:hover {
-    background-color: #333;
-    color: #73c1ff;
-  }
-
-  .contato-item img {
-    filter: grayscale(0%) brightness(1.5);
+  
+  #sobre-mim p {
+    color: #bbb;
   }
 
   footer {
     color: #aaa;
   }
-}
 
-/* QR Code flutuante no canto inferior direito (só mostrar quando tiver imagem) */
-.qr-code {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 80px;
-  height: 80px;
-  background-color: #fff;
-  padding: 6px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-  z-index: 999;
-  display: none; /* ativa quando tiver imagem */
-}
-
-@media (prefers-color-scheme: dark) {
   .qr-code {
-    background-color: #1a1a1a;
+    background-color: #2a2a2a;
+    border: 1px solid #444;
   }
 }
