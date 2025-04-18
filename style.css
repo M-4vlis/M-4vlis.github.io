@@ -24,7 +24,7 @@ body.dark-theme {
 /* Header com foto de perfil */
 header {
   text-align: center;
-  padding: 40px 20px;
+  padding: 40px 0 20px;
   background-color: #222;
   color: #fff;
   border-radius: 10px;
@@ -41,6 +41,7 @@ header {
   gap: 20px;
   max-width: 800px;
   margin: 0 auto;
+  padding: 0 20px;
 }
 
 /* Foto de perfil - Ajustada para ficar menor e no canto esquerdo */
@@ -338,12 +339,6 @@ body.dark-theme footer {
 
 /* Responsividade para telas médias */
 @media (max-width: 768px) {
-  .profile-container {
-    flex-direction: row;
-    justify-content: flex-start;
-    padding: 0 10px;
-  }
-  
   .projetos-container {
     flex-direction: column;
   }
