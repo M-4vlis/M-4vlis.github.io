@@ -31,15 +31,17 @@ document.addEventListener("DOMContentLoaded", () => {
     
     document.body.appendChild(themeToggle);
     
-    // Função para atualizar o tema
+    // Define classe no body para controle de tema em vez de atributo no html
     const setTheme = (theme) => {
-      if (theme === 'dark' || (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-        document.documentElement.setAttribute('data-theme', 'dark');
+      if (theme === 'dark') {
+        document.body.classList.add('dark-theme');
+        document.body.classList.remove('light-theme');
         themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
         themeToggle.style.backgroundColor = '#f0c14b';
         themeToggle.style.color = '#1e1e1e';
       } else {
-        document.documentElement.setAttribute('data-theme', 'light');
+        document.body.classList.add('light-theme');
+        document.body.classList.remove('dark-theme');
         themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
         themeToggle.style.backgroundColor = '#007acc';
         themeToggle.style.color = '#fff';
@@ -50,22 +52,21 @@ document.addEventListener("DOMContentLoaded", () => {
     if (savedTheme) {
       setTheme(savedTheme);
     } else {
-      setTheme('auto');
+      // Verifica preferência do sistema
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        setTheme('dark');
+      } else {
+        setTheme('light');
+      }
     }
     
     // Evento de clique para alternar tema
     themeToggle.addEventListener('click', () => {
-      const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
-      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      // Verifica se o body tem a classe dark-theme
+      const isDark = document.body.classList.contains('dark-theme');
+      const newTheme = isDark ? 'light' : 'dark';
       
       localStorage.setItem('theme', newTheme);
       setTheme(newTheme);
-    });
-    
-    // Observador para mudanças na preferência do sistema
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-      if (!localStorage.getItem('theme')) {
-        setTheme(e.matches ? 'dark' : 'light');
-      }
     });
   });

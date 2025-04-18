@@ -6,12 +6,19 @@
   transition: all 0.3s ease;
 }
 
+/* Tema Claro (padrão) */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.6;
   background-color: #f4f4f4;
   color: #333;
   padding: 20px;
+}
+
+/* Estilos para tema escuro via classes */
+body.dark-theme {
+  background-color: #1e1e1e;
+  color: #e4e4e4;
 }
 
 /* Header */
@@ -47,6 +54,21 @@ section {
   opacity: 0;
   transform: translateY(30px);
   animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* Tema Escuro - Seções */
+body.dark-theme section {
+  background-color: #2c2c2c;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-theme header {
+  background-color: #121212;
+  color: #f0f0f0;
+}
+
+body.dark-theme header p {
+  color: #ccc;
 }
 
 section:nth-of-type(2) {
@@ -116,6 +138,25 @@ footer {
   text-decoration: underline;
 }
 
+/* Tema Escuro - Projetos */
+body.dark-theme .projeto-card {
+  background-color: #2a2a2a;
+  border-color: #444;
+  border-left-color: #007acc;
+}
+
+body.dark-theme .projeto-card h3 {
+  color: #e4e4e4;
+}
+
+body.dark-theme .projeto-card p {
+  color: #bbb;
+}
+
+body.dark-theme .projeto-card a {
+  color: #4ea1ff;
+}
+
 /* Sobre mim */
 #sobre-mim {
   padding: 20px;
@@ -133,6 +174,15 @@ footer {
   font-size: 1.1rem;
   color: #555;
   line-height: 1.6;
+}
+
+/* Tema Escuro - Sobre mim */
+body.dark-theme #sobre-mim {
+  background-color: #2a2a2a;
+}
+
+body.dark-theme #sobre-mim p {
+  color: #bbb;
 }
 
 /* Contatos responsivo estilo LinkedIn Premium com Glow-up */
@@ -170,18 +220,35 @@ footer {
   font-size: 20px;
 }
 
-/* QR Code flutuante */
-.qr-code {
+/* Tema Escuro - Contatos */
+body.dark-theme .contato-container a {
+  background-color: #2a2a2a;
+  color: #4ea1ff;
+}
+
+body.dark-theme .contato-container a:hover {
+  background-color: #4ea1ff;
+  color: #121212;
+}
+
+/* QR Code flutuante com legenda */
+.qr-code-container {
   position: fixed;
   bottom: 20px;
   right: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 999;
+}
+
+.qr-code {
   width: 80px;
   height: 80px;
   background-color: #fff;
   padding: 6px;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  z-index: 999;
   object-fit: contain;
   cursor: pointer;
   transition: transform 0.3s ease, width 0.3s ease, height 0.3s ease;
@@ -191,12 +258,38 @@ footer {
   transform: scale(1.1);
 }
 
+.qr-code-label {
+  margin-top: 5px;
+  font-size: 12px;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-weight: bold;
+  color: #333;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Tema Escuro - QR Code */
+body.dark-theme .qr-code {
+  background-color: #2a2a2a;
+  border: 1px solid #444;
+}
+
+body.dark-theme .qr-code-label {
+  background-color: rgba(42, 42, 42, 0.8);
+  color: #e4e4e4;
+}
+
 /* Rodapé */
 footer {
   text-align: center;
   margin-top: 40px;
   font-size: 0.9rem;
   color: #777;
+}
+
+body.dark-theme footer {
+  color: #aaa;
 }
 
 /* 🔥 Responsividade para telas pequenas */
@@ -229,72 +322,5 @@ footer {
 
   #sobre-mim {
     padding: 15px;
-  }
-}
-
-/* 🌙 Modo escuro automático */
-@media (prefers-color-scheme: dark) {
-  body {
-    background-color: #1e1e1e;
-    color: #e4e4e4;
-  }
-
-  section {
-    background-color: #2c2c2c;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  }
-
-  header {
-    background-color: #121212;
-    color: #f0f0f0;
-  }
-
-  header p {
-    color: #ccc;
-  }
-
-  .projeto-card {
-    background-color: #2a2a2a;
-    border-color: #444;
-    border-left-color: #007acc;
-  }
-  
-  .projeto-card h3 {
-    color: #e4e4e4;
-  }
-  
-  .projeto-card p {
-    color: #bbb;
-  }
-  
-  .projeto-card a {
-    color: #4ea1ff;
-  }
-
-  .contato-container a {
-    background-color: #2a2a2a;
-    color: #4ea1ff;
-  }
-
-  .contato-container a:hover {
-    background-color: #4ea1ff;
-    color: #121212;
-  }
-  
-  #sobre-mim {
-    background-color: #2a2a2a;
-  }
-  
-  #sobre-mim p {
-    color: #bbb;
-  }
-
-  footer {
-    color: #aaa;
-  }
-
-  .qr-code {
-    background-color: #2a2a2a;
-    border: 1px solid #444;
   }
 }

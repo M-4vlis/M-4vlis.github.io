@@ -54,16 +54,20 @@
     <p>&copy; 2025 Mario Pereira. Todos os direitos reservados.</p>
   </footer>
   
-  <!-- QR Code -->
-  <img src="qr.png" alt="QR Code para meu currículo" class="qr-code" />
+  <!-- QR Code com legenda -->
+  <div class="qr-code-container">
+    <img src="qr.png" alt="QR Code para meu currículo" class="qr-code" id="qr-code" />
+    <div class="qr-code-label">Meu Currículo</div>
+  </div>
   
-  <!-- Carregando o JavaScript -->
+  <!-- Carregando os scripts -->
   <script src="script.js"></script>
   <script src="theme.js"></script>
+  
   <!-- Script para o QR code -->
   <script>
     // Adiciona funcionalidade ao QR code para expandir ao clicar
-    document.querySelector('.qr-code').addEventListener('click', function() {
+    document.getElementById('qr-code').addEventListener('click', function() {
       if (this.style.width === '200px') {
         this.style.width = '80px';
         this.style.height = '80px';
