@@ -113,40 +113,53 @@ section h2 {
   line-height: 1.6;
 }
 
-/* Contato */
-#contato ul {
-  list-style: none;
-  padding-left: 0;
+/* Contatos responsivo estilo LinkedIn Premium */
+.contato-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 20px;
 }
 
-#contato li {
-  margin-bottom: 10px;
-}
-
-#contato a {
+/* Estilização dos links */
+.contato-container a {
   display: flex;
   align-items: center;
-  color: #007acc;
+  gap: 8px;
   text-decoration: none;
-  font-size: 1.2rem;
-  margin-right: 20px;
-  transition: color 0.3s ease;
+  color: #007acc;
+  font-weight: 500;
+  transition: transform 0.2s ease;
 }
 
-#contato a i {
-  margin-right: 10px; /* Espaço entre o ícone e o texto */
-  font-size: 1.5rem;
+.contato-container a:hover {
+  text-decoration: underline;
+  transform: scale(1.05);
 }
 
-#contato a:hover {
-  color: #005fa3;
+/* Ícones */
+.contato-container img {
+  width: 24px;
+  height: 24px;
 }
 
-#contato-container {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  flex-wrap: wrap; /* Para que os itens se ajustem em telas menores */
+/* 🔥 Responsividade para telas pequenas */
+@media (max-width: 600px) {
+  .contato-container {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .contato-container a {
+    font-size: 1rem;
+  }
+
+  .contato-container img {
+    width: 20px;
+    height: 20px;
+  }
 }
 
 /* Rodapé */
