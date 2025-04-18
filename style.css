@@ -124,12 +124,29 @@ section h2 {
 }
 
 #contato a {
+  display: flex;
+  align-items: center;
   color: #007acc;
   text-decoration: none;
+  font-size: 1.2rem;
+  margin-right: 20px;
+  transition: color 0.3s ease;
+}
+
+#contato a i {
+  margin-right: 10px; /* Espaço entre o ícone e o texto */
+  font-size: 1.5rem;
 }
 
 #contato a:hover {
-  text-decoration: underline;
+  color: #005fa3;
+}
+
+#contato-container {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap; /* Para que os itens se ajustem em telas menores */
 }
 
 /* Rodapé */
