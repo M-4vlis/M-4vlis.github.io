@@ -5,23 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mario Pereira | Portfólio</title>
   <link rel="stylesheet" href="style.css" />
-  <!-- Link para o Font Awesome -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
 <body>
   <header>
     <div class="profile-container">
       <div class="profile-image">
-        <!-- Substitua 'profile.jpg' pelo nome da sua foto de perfil -->
         <img src="profile.jpg" alt="Mario Pereira" />
       </div>
       <div class="profile-info">
         <h1>Mario Pereira</h1>
-        <p>Estudante de Ciência de Dados | Explorando o universo dos dados</p>
+        <p>Desenvolvedor em transição | Explorador de dados e soluções digitais</p>
       </div>
     </div>
   </header>
-  
+
   <!-- Seção Sobre Mim -->
   <section id="sobre-mim">
     <h2>Sobre mim</h2>
@@ -38,15 +36,34 @@
       Seja bem-vindo ao meu universo — onde dados, desenvolvimento e resiliência se encontram.
     </p>
   </section>
-  
+
+  <!-- Seção Habilidades -->
+  <section id="skills">
+    <h2>🔧 Habilidades em desenvolvimento</h2>
+    <ul>
+      <li><strong>Python</strong> para automação e backend</li>
+      <li><strong>HTML, CSS e JavaScript</strong> para Web</li>
+      <li><strong>Git & GitHub</strong> para versionamento</li>
+      <li><strong>Bancos de Dados</strong> relacionais e NoSQL</li>
+      <li><strong>APIs e Web Apps</strong> simples com Flask</li>
+    </ul>
+  </section>
+
   <!-- Seção Projetos -->
   <section id="projetos">
     <h2>Portfólio</h2>
+    <p style="text-align:center; font-style: italic; color: #555;">Projetos que nasceram da necessidade, da curiosidade e de muitos testes no terminal.</p>
     <div class="projetos-container">
       <!-- Os projetos serão carregados aqui pelo script.js -->
     </div>
   </section>
-  
+
+  <!-- Seção de Transição de Carreira -->
+  <section>
+    <h2>📌 Em Transição de Carreira</h2>
+    <p>Atualmente em transição da área administrativa para o desenvolvimento de software, com forte bagagem em dados e automações. Busco oportunidades como Desenvolvedor Júnior, especialmente com foco em backend, automações, web apps e APIs.</p>
+  </section>
+
   <!-- Seção de Contato -->
   <section id="contato">
     <h2>Contato</h2>
@@ -60,27 +77,26 @@
       <a href="https://github.com/M-4vlis" target="_blank">
         <i class="fab fa-github"></i> GitHub
       </a>
+      <a href="Curriculo - Mario Pereira.pdf" download>
+        <i class="fas fa-file-download"></i> Currículo (PDF)
+      </a>
     </div>
   </section>
-  
+
   <!-- Rodapé -->
   <footer>
-    <p>&copy; 2025 Mario Pereira. Todos os direitos reservados.</p>
+    <p>&copy; 2025 Mario Pereira. Feito com café, sonhos e muitos commits ☕💻</p>
   </footer>
-  
+
   <!-- QR Code com legenda -->
   <div class="qr-code-container">
     <img src="qr.png" alt="QR Code para meu currículo" class="qr-code" id="qr-code" />
     <div class="qr-code-label">Meu Currículo</div>
   </div>
-  
-  <!-- Carregando os scripts -->
+
   <script src="script.js"></script>
   <script src="theme.js"></script>
-  
-  <!-- Script para o QR code -->
   <script>
-    // Adiciona funcionalidade ao QR code para expandir ao clicar
     document.getElementById('qr-code').addEventListener('click', function() {
       if (this.style.width === '200px') {
         this.style.width = '80px';
