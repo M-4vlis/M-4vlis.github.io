@@ -5,14 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mario Pereira | Portfólio</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="theme.css" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
   <style>
     body {
       scroll-behavior: smooth;
     }
+    .theme-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: var(--card-bg);
+      color: var(--text-color);
+      border: 1px solid var(--card-border);
+      padding: 10px 15px;
+      border-radius: 8px;
+      cursor: pointer;
+      z-index: 999;
+    }
     .projeto-card {
-      background-color: #f8f8f8;
-      border: 1px solid #ddd;
+      background-color: var(--card-bg);
+      border: 1px solid var(--card-border);
       border-radius: 10px;
       padding: 20px;
       margin: 10px;
@@ -25,9 +38,9 @@
     }
     .repo-language {
       font-size: 0.85rem;
-      color: #444;
+      color: var(--text-color);
       margin-top: 8px;
-      background: #e6f4f1;
+      background: var(--highlight-bg);
       display: inline-block;
       padding: 4px 8px;
       border-radius: 6px;
@@ -53,87 +66,20 @@
   </style>
 </head>
 <body>
-  <header>
-    <div class="profile-container">
-      <div class="profile-image">
-        <img src="profile.jpg" alt="Mario Pereira" />
-      </div>
-      <div class="profile-info">
-        <h1>Mario Pereira</h1>
-        <p>Desenvolvedor em transição | Explorador de dados e soluções digitais</p>
-      </div>
-    </div>
-  </header>
+  <button class="theme-toggle" onclick="toggleTheme()">🌜 Mudar tema</button>
 
-  <section id="sobre-mim">
-    <h2>Sobre mim</h2>
-    <p>
-      Sou o Mario — desenvolvedor em formação e eterno explorador de dados. Depois de mergulhar de cabeça no mundo da Ciência de Dados, descobri que minha paixão vai além dos gráficos e análises: ela se estende até a criação de sistemas, automações e soluções completas com código.
-    </p>
-    <p>
-      Atualmente estou migrando oficialmente para a área de Desenvolvimento de Software, cursando Análise e Desenvolvimento de Sistemas. Essa transição não apaga minha base em dados — pelo contrário, ela potencializa meu objetivo de criar soluções inteligentes, que vão desde a coleta e análise de dados até a construção de interfaces e ferramentas funcionais.
-    </p>
-    <p>
-      Tenho projetos que unem essas duas paixões: desde um sistema de automação de e-mails em massa para agilizar tarefas administrativas, até análises preditivas com machine learning. Tudo isso enquanto encaro uma rotina puxada, sendo pai, trabalhador e estudante, sempre com um olho no código e o outro no futuro.
-    </p>
-    <p>
-      Seja bem-vindo ao meu universo — onde dados, desenvolvimento e resiliência se encontram.
-    </p>
-  </section>
-
-  <section id="skills">
-    <h2>🔧 Habilidades em desenvolvimento</h2>
-    <ul>
-      <li><strong>Python</strong> para automação e backend</li>
-      <li><strong>HTML, CSS e JavaScript</strong> para Web</li>
-      <li><strong>Git & GitHub</strong> para versionamento</li>
-      <li><strong>Bancos de Dados</strong> relacionais e NoSQL</li>
-      <li><strong>APIs e Web Apps</strong> simples com Flask</li>
-    </ul>
-  </section>
-
-  <section id="projetos">
-    <h2>Portfólio</h2>
-    <p style="text-align:center; font-style: italic; color: #555;">Projetos que nasceram da necessidade, da curiosidade e de muitos testes no terminal.</p>
-    <div class="loading-spinner" id="spinner">
-      <div class="spinner"></div>
-    </div>
-    <div class="projetos-container" id="repos-container"></div>
-  </section>
-
-  <section>
-    <h2>📌 Em Transição de Carreira</h2>
-    <p>Atualmente em transição da área administrativa para o desenvolvimento de software, com forte bagagem em dados e automações. Busco oportunidades como Desenvolvedor Júnior, especialmente com foco em backend, automações, web apps e APIs.</p>
-  </section>
-
-  <section id="contato">
-    <h2>Contato</h2>
-    <div class="contato-container">
-      <a href="mailto:omario.pereira96@gmail.com">
-        <i class="fas fa-envelope"></i> Email
-      </a>
-      <a href="https://www.linkedin.com/in/omario-silva96" target="_blank">
-        <i class="fab fa-linkedin"></i> LinkedIn
-      </a>
-      <a href="https://github.com/M-4vlis" target="_blank">
-        <i class="fab fa-github"></i> GitHub
-      </a>
-      <a href="curriculo.pdf" download>
-        <i class="fas fa-file-download"></i> Currículo (PDF)
-      </a>
-    </div>
-  </section>
-
-  <footer>
-    <p>&copy; 2025 Mario Pereira. Feito com café, sonhos e muitos commits ☕💻</p>
-  </footer>
-
-  <div class="qr-code-container">
-    <img src="qr.png" alt="QR Code para meu currículo" class="qr-code" id="qr-code" />
-    <div class="qr-code-label">Meu Currículo</div>
-  </div>
+  <!-- ... cabeçalho e seções anteriores ... -->
 
   <script>
+    function toggleTheme() {
+      document.body.classList.toggle('dark');
+      localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
+    }
+
+    if (localStorage.getItem('theme') === 'dark') {
+      document.body.classList.add('dark');
+    }
+
     document.getElementById('qr-code').addEventListener('click', function() {
       if (this.style.width === '200px') {
         this.style.width = '80px';
@@ -152,7 +98,7 @@
         container.innerHTML = '';
         spinner.style.display = 'none';
 
-        repos.forEach(repo => {
+        repos.filter(repo => !repo.name.startsWith('M-4vlis')).forEach(repo => {
           const card = document.createElement('div');
           card.className = 'projeto-card';
 
@@ -176,5 +122,6 @@
         console.error(error);
       });
   </script>
+  <script src="theme.js"></script>
 </body>
 </html>
