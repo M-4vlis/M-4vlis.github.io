@@ -368,3 +368,28 @@ body.dark-theme footer {
     font-size: 0.9rem;
   }
 }
+
+/* Estilo para a seção de habilidades com tabulação visual */
+#skills ul {
+  list-style: none;
+  padding-left: 20px;
+}
+
+#skills ul li {
+  position: relative;
+  padding-left: 1.5em;
+  margin-bottom: 8px;
+}
+
+#skills ul li::before {
+  content: "\2022";
+  position: absolute;
+  left: 0;
+  color: #007acc;
+  font-size: 1.2em;
+  line-height: 1;
+}
+
+body.dark-theme #skills ul li::before {
+  color: #4ea1ff;
+}
